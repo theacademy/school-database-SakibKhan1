@@ -36,7 +36,7 @@ public class SchoolDaoImpl implements SchoolDao {
         // sorted by last name.
         // YOUR CODE STARTS HERE
 
-
+        //for getting all students
         String sql = "SELECT fName, lName " +
                 "FROM Student " +
                 "ORDER BY lName";
@@ -52,7 +52,7 @@ public class SchoolDaoImpl implements SchoolDao {
         // for all courses in the Computer Science department.
         // YOUR CODE STARTS HERE
 
-
+        //gives course code/name
         String sql = "SELECT courseCode, courseDesc " +
                     "FROM course " +
                     "WHERE courseCode LIKE 'CS%'";
@@ -67,7 +67,7 @@ public class SchoolDaoImpl implements SchoolDao {
         //  Name the aggregate field `teacherCount`.
         // YOUR CODE STARTS HERE
 
-
+        //gives total num of teachers for each department
         String sql = "SELECT dept, COUNT(*) AS teacherCount " +
                     "FROM teacher " +
                     "GROUP BY dept";
@@ -83,7 +83,7 @@ public class SchoolDaoImpl implements SchoolDao {
         // Name the aggregate field `numStudents`.
         // YOUR CODE STARTS HERE
 
-
+        //^^
         String sql = "SELECT c.courseCode, c.courseDesc, COUNT(cs.student_id) AS numStudents " +
                     "FROM course c " +
                     "INNER JOIN course_student cs ON c.cid = cs.course_id " +
@@ -116,7 +116,7 @@ public class SchoolDaoImpl implements SchoolDao {
         // You will need to include a sid in your query.  Use 123
         // YOUR CODE STARTS HERE
 
-
+        //adds to CS148
         String sql = "INSERT INTO course_student (student_id, course_id) " +
                     "VALUES (123, (SELECT cid FROM course WHERE courseCode = 'CS148'))";
 
@@ -129,7 +129,7 @@ public class SchoolDaoImpl implements SchoolDao {
         // Write a query to change the course description for course CS305 to "Advanced Python with Flask".
         // YOUR CODE STARTS HERE
 
-
+        //changes it to required desc
         String sql = "UPDATE course " +
                     "SET courseDesc = 'Advanced Python with Flask' " +
                     "WHERE courseCode = 'CS305'";
@@ -143,7 +143,7 @@ public class SchoolDaoImpl implements SchoolDao {
         // Write a query to remove David Mitchell as a teacher.
         // YOUR CODE STARTS HERE
         
-        
+        //deletes as teacher
         String sql = "DELETE FROM teacher " +
                     "WHERE tFName = 'David' AND tLName = 'Mitchell'";
 
